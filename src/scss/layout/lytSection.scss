@@ -1,0 +1,9 @@
+@use "../setting" as *;
+
+.l-lytSection {
+    padding: 80px 0;
+
+    @include breakpoint-xs {
+        padding: 60px 0;
+    }
+}

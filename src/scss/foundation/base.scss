@@ -1,0 +1,106 @@
+@use "../setting" as *;
+
+:root {
+  @include z-map((--z-bottomLayer: auto,
+      --z-underLayer: auto,
+      --z-middleLayer: 500,
+      --z-topLayer: auto,
+    ));
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-break: normal;
+  font-kerning: none;
+  scroll-behavior: smooth;
+  padding-top: constant(safe-area-inset-top);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-left: constant(safe-area-inset-left);
+  padding-right: constant(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+body {
+  font-family: $fontfamily-NotoSansJp;
+  font-style: normal;
+  font-weight: $fontWeight-basic;
+  font-size: $basicFontSize;
+  line-height: 1.71;
+  color: $color-bodyText;
+  background-color: $color-white;
+
+  @include breakpoint-xs {
+    font-size: $basicFontSize-xs;
+  }
+
+  &.is-fixed {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+a {
+  color: $color-linkText;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  line-height: 1;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.anchor-point {
+  padding-top: 140px;
+  margin-top: -140px;
+
+  @include breakpoint-sm {
+    padding-top: 70px;
+    margin-top: -70px;
+  }
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s ease-out, z-index 0.2s ease-out .2s;
+
+  &.is-active {
+    z-index: var(--z-middleLayer);
+    opacity: 1;
+    transition: opacity 0.2s ease-out, z-index 0.2s ease-out;
+  }
+}

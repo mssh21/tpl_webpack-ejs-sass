@@ -1,0 +1,30 @@
+@use "../setting" as *;
+
+.l-container {
+  width: min($contaienerWidth, 100% - 64px);
+  margin-inline: auto;
+
+  @include breakpoint-sm {
+    width: min($contaienerWidth, 100% - 48px);
+  }
+
+  @include breakpoint-xs {
+    width: min($contaienerWidth, 100% - 40px);
+  }
+
+  &.-wide {
+    width: min($contaienerWidth-wide, 100% - 88px);
+
+    @include breakpoint-sm {
+      width: min($contaienerWidth-wide, 100% - 48px);
+    }
+  }
+
+  &.-tiny {
+    width: min(800px, 100% - 88px);
+
+    @include breakpoint-sm {
+      width: min(800px, 100% - 48px);
+    }
+  }
+}

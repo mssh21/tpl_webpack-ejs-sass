@@ -1,0 +1,40 @@
+<% let title=jsonData.pages[pageId].title %>
+    <% let description=jsonData.pages[pageId].description %>
+        <% let siteUrl=jsonData.siteInfo.siteUrl %>
+            <% let root=jsonData.pages[pageId].root %>
+                <% let facebook_app_id=jsonData.siteInfo.facebook_app_id %>
+                    <% let twitter_account=jsonData.siteInfo.twitter_account %>
+                    <!DOCTYPE html>
+                        <html lang="ja">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <meta name="format-detection" content="telephone=no">
+                            <title><%= title %></title>
+                            <meta name="description" content="<%= description %>">
+
+                            <link rel="icon" href="/images/favicon.ico">
+                            <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+                            <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png">
+                            <link rel="mask-icon" href="/images/safari-mask-icon.svg" color="#0D82FB">
+
+                            <meta name="twitter:card" content="summary_large_image" />
+                            <meta name="twitter:site" content="<%= twitter_account %>" />
+                            <meta name="twitter:title" content="<%= title %>" />
+                            <meta name="twitter:creator" content="<%= twitter_account %>">
+                            <meta name="twitter:description" content="<%= description %>" />
+                            <meta name="twitter:image" content="/images/ogimage_ja.png" />
+
+                            <meta property="fb:app_id" content="<%= facebook_app_id %>" />
+                            <meta property="og:url" content="<%= siteUrl %><%= root %>" />
+                            <meta property="og:type" content="website" />
+                            <meta property="og:title" content="<%= title %>" />
+                            <meta property="og:description" content="<%= description %>" />
+                            <meta property="og:image" content="/images/ogimage_ja.png" />
+
+                            <link rel="preconnect" href="https://fonts.googleapis.com">
+                            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+                            <link rel="stylesheet" href="<%- rootPath %>css/style.css">
+                            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+                        </head>

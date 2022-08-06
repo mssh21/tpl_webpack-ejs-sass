@@ -1,0 +1,15 @@
+{
+  "siteInfo": {
+    "name": "サイト名w",
+    "siteUrl": "***************",
+    "facebook_app_id": "***************",
+    "twitter_account": "@***************"
+  },
+  "pages": {
+    "home": {
+      "title": "サイトホーム",
+      "description": "ディスクリプション",
+      "root": "./"
+    }
+  }
+}

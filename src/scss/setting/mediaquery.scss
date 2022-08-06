@@ -1,0 +1,78 @@
+@use "sass:map";
+
+$breakpoint-lg: 89.938em; // 1439px
+
+@mixin breakpoint-lg {
+  @media (max-width: ($breakpoint-lg)) {
+    @content;
+  }
+}
+
+$breakpoint-md: 75em; // 1200px
+
+@mixin breakpoint-md {
+  @media (max-width: ($breakpoint-md)) {
+    @content;
+  }
+}
+
+$breakpoint-sm: 66.25em; // 1060px
+
+@mixin breakpoint-sm {
+  @media (max-width: ($breakpoint-sm)) {
+    @content;
+  }
+}
+
+$breakpoint-xs: 52.125em; // 834px
+
+@mixin breakpoint-xs {
+  @media (max-width: ($breakpoint-xs)) {
+    @content;
+  }
+}
+
+$breakpoint-xxs: 25.875em; // 414px
+
+@mixin breakpoint-xxs {
+  @media (max-width: ($breakpoint-xxs)) {
+    @content;
+  }
+}
+
+$mq-breakpoints: (
+  lg: 89.938em,
+  md: 75em,
+  sm: 66.25em,
+  xs: 52.125em,
+  xxs: 25.875em,
+);
+
+@mixin breakpoint($key, $until: false) {
+  @if map.has-key($mq-breakpoints, $key)==false {
+    @error "`#{$key}` not found in $mq-breakpoints";
+  }
+
+  $breakpoint: map.get($mq-breakpoints, $key);
+  $is-zero: $breakpoint ==0;
+
+  @if $is-zero and $until {
+    @error "Breakpoints are not available for screens smaller than 0px";
+  }
+
+  @if $is-zero {
+    @content;
+  }
+
+  @else if $until {
+    @media not all and (max-width: #{$breakpoint}) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (max-width: #{$breakpoint}) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use "../setting" as *;
+
+.display-inline-block {
+  display: inline-block;
+}
+
+
+.display-md-show {
+  display: none;
+
+  @include breakpoint-md {
+    display: block;
+  }
+}
+
+.display-md-hide {
+  @include breakpoint-md {
+    display: none;
+  }
+}
+
+.display-sm-show {
+  display: none;
+
+  @include breakpoint-sm {
+    display: block;
+  }
+}
+
+.display-sm-hide {
+  @include breakpoint-sm {
+    display: none;
+  }
+}
+
+.display-xs-show {
+  display: none !important;
+
+  @include breakpoint-xs {
+    display: block !important;
+  }
+}
+
+.display-xs-hide {
+  @include breakpoint-xs {
+    display: none !important;
+  }
+}
+
+.display-xxs-show {
+  display: none !important;
+
+  @include breakpoint-xxs {
+    display: block !important;
+  }
+}
+
+.display-xxs-hide {
+  @include breakpoint-xxs {
+    display: none !important;
+  }
+}

@@ -1,0 +1,189 @@
+@use '../setting' as *;
+
+.l-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.-col-2>* {
+    flex-grow: 1;
+    max-width: calc(100% / 2);
+
+    @include breakpoint-xs {
+      max-width: 100%;
+    }
+  }
+
+  &.-col-3>* {
+    flex-grow: 1;
+    max-width: calc(100% / 3);
+
+    @include breakpoint-xs {
+      max-width: 100%;
+    }
+  }
+
+  &.-col-4>* {
+    flex-grow: 1;
+    max-width: calc(100% / 4);
+
+    @include breakpoint-xs {
+      max-width: 100%;
+    }
+  }
+
+  &.-col-5>* {
+    flex-grow: 1;
+    max-width: calc(100% / 5);
+
+    @include breakpoint-xs {
+      max-width: 100%;
+    }
+  }
+}
+
+$flex-direction: (
+  row: row,
+  row-reverse: row-reverse,
+  column: column,
+  column-reverse: column-reverse,
+);
+
+@each $direction-key,
+$direction in $flex-direction {
+  $name: direction-#{$direction-key};
+
+  .l-flexbox.-#{$name} {
+    flex-direction: $direction;
+  }
+}
+
+@each $breakpoint-key,
+$breakpoint in $mq-breakpoints {
+  $uses-media-query: $breakpoint  !=0;
+  $breakpoint-prefix: if($uses-media-query, '#{$breakpoint-key}\\:', null);
+
+  @include breakpoint($breakpoint-key) {
+
+    @each $direction-key,
+    $direction in $flex-direction {
+      $name: direction-#{$direction-key};
+
+      .l-flexbox.-#{$breakpoint-prefix}#{$name} {
+        flex-direction: $direction;
+      }
+    }
+  }
+}
+
+$flex-justifiers: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+);
+
+@each $justifier-key,
+$justifier in $flex-justifiers {
+  $name: justify-#{$justifier-key};
+
+  .l-flexbox.-#{$name} {
+    justify-content: $justifier;
+  }
+}
+
+@each $breakpoint-key,
+$breakpoint in $mq-breakpoints {
+  $uses-media-query: $breakpoint  !=0;
+  $breakpoint-prefix: if($uses-media-query, '#{$breakpoint-key}\\:', null);
+
+  @include breakpoint($breakpoint-key) {
+
+    @each $justifier-key,
+    $justifier in $flex-justifiers {
+      $name: justify-#{$justifier-key};
+
+      .l-flexbox.-#{$breakpoint-prefix}#{$name} {
+        justify-content: $justifier;
+      }
+    }
+  }
+}
+
+$flex-aligners: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+);
+
+@each $aligner-key,
+$aligner in $flex-aligners {
+  $name: align-#{$aligner-key};
+
+  .l-flexbox.-#{$name} {
+    align-items: $aligner;
+  }
+}
+
+@each $breakpoint-key,
+$breakpoint in $mq-breakpoints {
+  $uses-media-query: $breakpoint  !=0;
+  $breakpoint-prefix: if($uses-media-query, '#{$breakpoint-key}\\:', null);
+
+  @include breakpoint($breakpoint-key) {
+
+    @each $aligner-key,
+    $aligner in $flex-aligners {
+      $name: align-#{$aligner-key};
+
+      .l-flexbox.-#{$breakpoint-prefix}#{$name} {
+        align-items: $aligner;
+      }
+    }
+  }
+}
+
+.-gap-0 {
+  gap: 0;
+}
+
+@for $i from 1 through 50 {
+  .-gap-#{$i * 2} {
+    gap: #{$i * 2}px;
+  }
+}
+
+@each $breakpoint-key,
+$breakpoint in $mq-breakpoints {
+  $uses-media-query: $breakpoint  !=0;
+  $breakpoint-prefix: if($uses-media-query, '#{$breakpoint-key}\\:', null);
+
+  @include breakpoint($breakpoint-key) {
+    .l-flexbox.-#{$breakpoint-prefix}gap-0 {
+      gap: 0;
+    }
+
+    @for $i from 1 through 50 {
+      .l-flexbox.-#{$breakpoint-prefix}gap-#{$i * 2} {
+        gap: #{$i * 2}px;
+      }
+    }
+  }
+}
+
+
+@each $breakpoint-key,
+$breakpoint in $mq-breakpoints {
+  $uses-media-query: $breakpoint  !=0;
+  $breakpoint-prefix: if($uses-media-query, '#{$breakpoint-key}\\:', null);
+
+  @include breakpoint($breakpoint-key) {
+    .l-flexbox.-#{$breakpoint-prefix}wrap {
+      flex-wrap: wrap;
+    }
+  }
+}

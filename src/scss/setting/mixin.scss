@@ -1,0 +1,64 @@
+@use "./variables" as *;
+@use "./mediaquery" as *;
+
+@mixin z-map($z-map) {
+  $before-index: -1;
+
+  @each $name,
+  $value in $z-map {
+    $result-z: null;
+
+    @if $value ==auto {
+      $result-z: $before-index +1;
+    }
+
+    @else {
+      $result-z: $value;
+    }
+
+    $before-index: $result-z;
+    #{$name}: $result-z;
+  }
+}
+
+@mixin device2x {
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin device3x {
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 3),
+  only screen and (min-resolution: 3dppx) {
+    @content;
+  }
+}
+
+@mixin headline-h2 {
+  font-size: 4.2rem;
+  font-weight: $fontWeight-bold;
+  line-height: 1.29;
+  letter-spacing: 0.84px;
+  color: #000;
+
+  @include breakpoint-xs {
+    font-size: 2.8rem;
+    line-height: 1.36;
+    letter-spacing: 0.56px;
+  }
+}
+
+@mixin headline-h5 {
+  font-size: 1.8rem;
+  font-weight: $fontWeight-bold;
+  line-height: 1.71;
+  letter-spacing: 0.84px;
+  color: #000;
+
+  @include breakpoint-xs {
+    font-size: 1.4rem;
+  }
+}

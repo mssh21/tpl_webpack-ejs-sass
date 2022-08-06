@@ -1,0 +1,13 @@
+<% let title=jsonData.pages[pageId].title %>
+    <% let description=jsonData.pages[pageId].description %>
+        <% let siteUrl=jsonData.siteInfo.siteUrl %>
+            <% let root=jsonData.pages[pageId].root %>
+                        <body class="<%= pageId %>">
+                            <header id="header" class="l-header">
+                                    <% if (pageId==='home' ){ %>
+                                    <h1 class="l-header__logo"><a href="<%- rootPath %>">SITE NAME</a></h1>
+                                    <% } else { %>
+                                    <div class="l-header__logo"><a href="<%- rootPath %>">SITE NAME</a></div>
+                                    <% } %>
+                            </header>
+                            <main class="l-main">

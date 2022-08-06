@@ -1,0 +1,166 @@
+@use "../setting" as *;
+
+.c-btn {
+    display: inline-block;
+    width: 340px;
+    max-width: 100%;
+    min-height: 60px;
+    border-radius: 30px;
+    padding: 0.8em .5em;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: $fontWeight-bold;
+
+    @include breakpoint-xxs {
+        font-size: 1.6rem;
+        min-height: 52px;
+    }
+
+    &.-primary {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &:hover {
+            background-color: #2389B1;
+        }
+    }
+
+    &.-cta {
+        background-color: $color-gold;
+        color: $color-white;
+
+        &:hover {
+            background-color: #BFB651;
+        }
+    }
+
+    &.-border-primary {
+        border: 1px solid $color-primary;
+        color: $color-primary;
+        background-color: transparent;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+
+    &.-border-white {
+        border: 1px solid $color-white;
+        color: $color-white;
+        background-color: transparent;
+
+        &:hover {
+            background-color: $color-white;
+            color: $color-primary;
+        }
+    }
+
+    &.-md\:border-white {
+        @include breakpoint-md {
+            border: 1px solid $color-white;
+            color: $color-white;
+            background-color: transparent;
+
+            &:hover {
+                background-color: $color-white;
+                color: $color-primary;
+            }
+        }
+    }
+
+    &.-header-cta {
+        width: 200px;
+        min-height: 46px;
+        line-height: 46px;
+        padding: 0;
+
+        @include breakpoint-md {
+            max-width: 50%;
+        }
+    }
+
+    &.-header-mypage {
+        @include breakpoint-md {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &.-header-logout {
+        width: 134px;
+        min-height: 46px;
+        line-height: 46px;
+        padding: 0 0 0 24px;
+        font-size: 1.6rem;
+        color: #333;
+        border-radius: 0;
+        position: relative;
+
+        @include breakpoint-md {
+            width: 60%;
+            max-width: 200px;
+            border-radius: 30px;
+            color: $color-white;
+            font-size: 1.4rem;
+            border: 1px solid $color-white;
+        }
+
+        &::after {
+            content: '';
+            background-image: url(../assets/common/icon-logout.svg);
+            background-size: 14px 14px;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            margin-top: -7px;
+
+            @include breakpoint-md {
+                background-image: url(../assets/common/icon-logout_white.svg);
+            }
+        }
+
+        &::before {
+            content: '';
+            width: 1px;
+            height: 46px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $color-border;
+
+            @include breakpoint-md {
+                content: none;
+            }
+        }
+
+        &:hover {
+            color: $color-primary;
+
+            @include breakpoint-md {
+                color: #E6F0F4;
+            }
+        }
+    }
+
+    &.-white {
+        color: $color-primary;
+        background-color: $color-white;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+
+    &.-md\:white {
+        @include breakpoint-md {
+            color: $color-primary;
+            background-color: $color-white;
+        }
+    }
+}

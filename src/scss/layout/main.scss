@@ -1,0 +1,6 @@
+@use "../setting" as *;
+
+.l-main {
+    position: relative;
+    z-index: var(--z-bottomLayer);
+}
