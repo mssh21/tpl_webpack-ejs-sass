@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ejs": "node task/ejs.js && html-beautify dist/**/*.html",
-    "build:production": "webpack --mode=production & npm run ejs",
+    "ejs": "node task/ejs.js",
+    "prod": "webpack --mode=production & npm run ejs && node ./beautify.js && html-beautify dist/**/*.html",
     "build": "webpack --mode=development & npm run ejs",
     "watch": "webpack --mode=development --watch & onchange './src/**/*.ejs' -- npm run ejs",
     "start": "webpack serve --mode=development & node task/ejs.js & onchange './src/**/*.ejs' -- node task/ejs.js"
