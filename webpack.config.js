@@ -28,7 +28,7 @@ module.exports = {
       directory: path.join(__dirname, "dist"),
     },
     host: "0.0.0.0",
-    open: false,
+    open: true,
     client: {
       overlay: {
         errors: true,
